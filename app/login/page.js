@@ -179,7 +179,7 @@ const Login = () => {
                 <g
                   id="container"
                   transform="translate(2.000000, 2.000000)"
-                  fill-rule="nonzero"
+                  fillRule="nonzero"
                 >
                   <rect
                     id="mask"
