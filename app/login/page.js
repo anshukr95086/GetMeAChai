@@ -6,13 +6,13 @@ import { redirect } from "next/navigation";
 const Login = () => {
   const { data: session } = useSession();
   if (session) {
-    return redirect("/");
+    return redirect(`/${session.user.name}/profile/`);
   }
 
   return (
     <>
       <div className="text-3xl font-bold flex flex-col items-center justify-center gap-0.5 text-center text-white mt-14">
-        <h1>Login/Sigup</h1>
+        <h1>Login</h1>
         <div className="flex flex-col gap-2 min-h-screen p-10">
           <button className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
             <svg

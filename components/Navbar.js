@@ -5,11 +5,13 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 const Navbar = () => {
   const { data: session } = useSession();
-  const [showDropDown, setshowDropDown] = useState(false)
+  const [showDropDown, setshowDropDown] = useState(false);
 
   return (
     <nav className="flex bg-indigo-950/0 text-white justify-between px-10 mt-1 items-center h-10 sticky top-1">
-      <div className="font-bold text-xl pl-10">GetMeAChai!</div>
+      <Link href={"/"}>
+        <div className="font-bold text-xl pl-10">GetMeAChai!</div>
+      </Link>
       <ul className="flex items-center justify-center gap-6">
         <Link href={"/"}>
           <li>Home</li>
@@ -58,7 +60,9 @@ const Navbar = () => {
 
             <div
               id="dropdownDivider"
-              className={`z-10 ${showDropDown ? "" : "hidden"} absolute right-0 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-full dark:bg-gray-700 dark:divide-gray-600`}
+              className={`z-10 ${
+                showDropDown ? "" : "hidden"
+              } absolute right-0 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-full dark:bg-gray-700 dark:divide-gray-600`}
               onMouseEnter={() => setshowDropDown(true)}
             >
               <ul
@@ -66,30 +70,29 @@ const Navbar = () => {
                 aria-labelledby="dropdownDividerButton"
               >
                 <li>
-                  <a
-                    href="/dashboard"
+                  <Link
+                    href={`/${session.user.name}/profile`}
                     className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     Dashboard
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/settings"
+                  <Link
+                    href={"/settings"}
                     className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     Settings
-                  </a>
+                  </Link>
                 </li>
               </ul>
-              <div className="py-2">
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" onClick={() => signOut()}
-                >
-                  Log Out
-                </a>
-              </div>
+              {/* I will put logout button in profile page */}
+              {/* <div
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                onClick={() => signOut()}
+              >
+                Log Out
+              </div> */}
             </div>
           </div>
         )}
