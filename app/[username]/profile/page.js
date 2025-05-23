@@ -26,7 +26,13 @@ const Profile = () => {
         <div class="description text-[#a0a0a0] font-medium">Creating Websites, YouTube videos, and more!</div>
       </div>
 
-
+      <div className="container flex justify-center items-center gap-20 mt-10 mx-auto">
+        <div class="supporters w-1/2 h-64 bg-red-800 flex items-center justify-center">
+           <div>Our Recent supporters</div>
+        </div>
+        <div class="support w-1/2 bg-amber-500 flex items-center justify-center">
+        <div>Become One of Them</div></div>
+      </div>
     </>
   );
 };
