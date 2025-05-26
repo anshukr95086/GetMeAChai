@@ -71,10 +71,18 @@ const Navbar = () => {
               >
                 <li>
                   <Link
-                    href={`/${session.user.name}/profile`}
+                    href={`/`}
                     className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={"/profile"}
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Your Profile
                   </Link>
                 </li>
                 <li>
